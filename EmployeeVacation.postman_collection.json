@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "3b82b9a2-dee5-488c-bbcd-45aa43533fbe",
+		"name": "EmployeeVacation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24219652",
+		"_collection_link": "https://crimson-firefly-661061.postman.co/workspace/My-Workspace~735dbd8c-d204-4f50-8215-e3c728bcc634/collection/24219652-3b82b9a2-dee5-488c-bbcd-45aa43533fbe?action=share&source=collection_link&creator=24219652"
+	},
+	"item": [
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "Create Employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employeeName",
+									"value": "Deepak",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8082/api/employees/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"employees",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Employee Vacation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  // I made some fields based on some logic.\r\n    \"vacationStartDate\": \"2024-08-01\", \r\n    \"vacationEndDate\": \"2024-08-10\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/api/employees/1/vacation-requests",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"employees",
+								"1",
+								"vacation-requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/api/employees/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"employees",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-vacation-details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "PENDING",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8082/api/employees/1/vacation-details",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"employees",
+								"1",
+								"vacation-details"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Manager",
+			"item": [
+				{
+					"name": "Approve",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/api/managers/vacation-requests/1?status=APPROVED&managerId=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"managers",
+								"vacation-requests",
+								"1"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "APPROVED"
+								},
+								{
+									"key": "managerId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/api/managers/vacation-requests?status=APPROVED",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"managers",
+								"vacation-requests"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "APPROVED"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
