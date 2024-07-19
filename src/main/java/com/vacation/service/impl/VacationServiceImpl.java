@@ -110,6 +110,7 @@ public class VacationServiceImpl implements VacationService {
     public  VacationRequestDTO toDto(VacationRequest vacationRequest) {
         VacationRequestDTO dto = new VacationRequestDTO();
         dto.setId(vacationRequest.getId());
+         dto.setEmployeeId(vacationRequest.getAuthor().getId());
         dto.setStatus(vacationRequest.getStatus());
         dto.setResolvedBy(vacationRequest.getResolvedBy());
         dto.setRequestCreatedAt(vacationRequest.getRequestCreatedAt());
